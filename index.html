@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunshine Express Car Wash | Express Tunnels &amp; Free Vacuums</title>
+  <meta name="description" content="Sunshine Washes is the premier express car wash in the Tampa Bay area. Visit us in Clearwater, Largo, and Temple Terrace for free vacuums and unlimited memberships.">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="images/hero_bg.jpg" type="image/jpeg">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="images/sunshine-logo.png" alt="Sunshine Washes Logo" class="logo-img">
+      </a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="compare-plans.html">JOIN THE CLUB</a></li>
+          <li class="nav-item"><a href="locations.html">FIND A WASH</a></li>
+          <li class="nav-item"><a href="manage-membership.html">MANAGE PLAN</a></li>
+          <li class="nav-item"><a href="https://portalv3.wash.me/buy/sunshinecw" target="_blank">GIFT CARD</a></li>
+          <li class="nav-item"><a href="about-us.html">ABOUT US<svg class="chevron-svg" width="10" height="6" viewBox="0 0 10 6" fill="currentColor" style="margin-left: 4px; vertical-align: middle;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-cta">
+        <button class="menu-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-overlay">
+    <ul class="mobile-menu">
+      <li><a href="compare-plans.html">JOIN THE CLUB</a></li>
+      <li><a href="locations.html">FIND A WASH</a></li>
+      <li><a href="manage-membership.html">MANAGE PLAN</a></li>
+      <li><a href="https://portalv3.wash.me/buy/sunshinecw" target="_blank">GIFT CARD</a></li>
+      <li><a href="about-us.html">ABOUT US</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       1. HERO SECTION
+  ═══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-subtitle" style="color: #01edeb;">JOIN THE CLUB</div>
+          <h1>SHOP UNLIMITED<br>WASH PLANS</h1>
+          <div class="hero-actions">
+            <a href="compare-plans.html" class="btn btn-primary">GET MY MEMBERSHIP</a>
+          </div>
+        </div>
+        
+        <div class="hero-search-card" id="findlocation">
+          <h2>SEARCH OUR LOCATIONS</h2>
+          <form class="hero-search-form" id="hero-locator-form" onsubmit="event.preventDefault();">
+            <div class="hero-search-pill-container">
+              <svg class="search-pill-pin" viewBox="0 0 24 24" width="20" height="20" fill="#FF0095" style="margin-right: 8px; flex-shrink: 0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <input type="text" id="hero-location-search" class="hero-pill-input" placeholder="Enter your ZIP Code" style="border: none; background: transparent; outline: none; font-size: 0.95rem; flex-grow: 1; padding: 6px 0; font-family: var(--font-body); color: var(--text-dark);">
+              <div class="hero-pill-divider" style="width: 1px; height: 24px; background-color: #cbd5e1; margin: 0 12px;"></div>
+              <select id="hero-location-radius" class="hero-pill-select" style="border: none; background: transparent; outline: none; font-size: 0.95rem; cursor: pointer; padding: 6px 20px 6px 0; appearance: none; color: #64748b; font-family: var(--font-body); background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 2px center; background-size: 16px;">
+                <option value="10">10 mi</option>
+                <option value="20">20 mi</option>
+                <option selected value="25">25 mi</option>
+                <option value="50">50 mi</option>
+                <option value="100">100 mi</option>
+              </select>
+            </div>
+            
+            <div class="hero-gps-wrapper" style="text-align: center; margin-top: 10px;">
+              <button type="button" id="hero-gps-locate" class="hero-gps-link">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="flex-shrink:0;"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+                Get my Position
+              </button>
+            </div>
+            
+            <button type="submit" id="hero-find-btn" class="btn btn-primary w-full" style="margin-top: 15px;">FIND NEAREST LOCATION</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       2. WASH PACKAGE LINEUP (Pricing)
+  ═══════════════════════════════════════ -->
+  <section id="pricing-section" style="background-color: var(--bg-light); border-top: 1px solid rgba(16, 17, 98, 0.04); border-bottom: 1px solid rgba(16, 17, 98, 0.04); padding: 90px 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 style="color: var(--action-pink); font-size: 3rem; margin-bottom: 30px;">WASH PACKAGE LINEUP</h2>
+      </div>
+      
+      <div class="grid-4" style="gap: 24px;">
+        <!-- GRAPHENE -->
+        <div class="plan-card plan-graphene featured">
+          <div class="plan-badge">MOST POPULAR</div>
+          <div class="plan-card-header">
+            <h3 class="plan-name">GRAPHENE</h3>
+          </div>
+          <div class="plan-card-body">
+            <ul class="plan-features">
+              <li class="included">Graphene</li>
+              <li class="included">Ceramic Mirror</li>
+              <li class="included">Platinum Hot Wax</li>
+              <li class="included">Rain Guard</li>
+              <li class="included">Tire Shine</li>
+              <li class="included">Wheel Cleaner</li>
+              <li class="included">Buff &amp; Dry</li>
+            </ul>
+            
+            <div class="plan-unlimited-block">
+              <div class="plan-price-block">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">36</span>
+                <span class="plan-period">/MO</span>
+              </div>
+              <div class="plan-price-title">UNLIMITED WASH</div>
+              <a href="https://sunshinecarwash.app.rinsed.co/portal" class="plan-buy-btn">BUY NOW</a>
+            </div>
+            
+            <div class="plan-divider"></div>
+            
+            <div class="plan-single-block">
+              <div class="plan-price-block single">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">30</span>
+              </div>
+              <div class="plan-price-title">SINGLE WASH</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERAMIC -->
+        <div class="plan-card plan-ceramic">
+          <div class="plan-card-header">
+            <h3 class="plan-name">CERAMIC</h3>
+          </div>
+          <div class="plan-card-body">
+            <ul class="plan-features">
+              <li class="excluded">Graphene</li>
+              <li class="included">Ceramic Mirror</li>
+              <li class="included">Platinum Hot Wax</li>
+              <li class="included">Rain Guard</li>
+              <li class="included">Tire Shine</li>
+              <li class="included">Wheel Cleaner</li>
+              <li class="included">Buff &amp; Dry</li>
+            </ul>
+            
+            <div class="plan-unlimited-block">
+              <div class="plan-price-block">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">34</span>
+                <span class="plan-period">/MO</span>
+              </div>
+              <div class="plan-price-title">UNLIMITED WASH</div>
+              <a href="https://sunshinecarwash.app.rinsed.co/portal" class="plan-buy-btn">BUY NOW</a>
+            </div>
+            
+            <div class="plan-divider"></div>
+            
+            <div class="plan-single-block">
+              <div class="plan-price-block single">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">25</span>
+              </div>
+              <div class="plan-price-title">SINGLE WASH</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BETTER -->
+        <div class="plan-card plan-better">
+          <div class="plan-card-header">
+            <h3 class="plan-name">BETTER</h3>
+          </div>
+          <div class="plan-card-body">
+            <ul class="plan-features">
+              <li class="excluded">Graphene</li>
+              <li class="excluded">Ceramic Mirror</li>
+              <li class="included">Platinum Hot Wax</li>
+              <li class="included">Rain Guard</li>
+              <li class="included">Tire Shine</li>
+              <li class="included">Wheel Cleaner</li>
+              <li class="included">Buff &amp; Dry</li>
+            </ul>
+            
+            <div class="plan-unlimited-block">
+              <div class="plan-price-block">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">30</span>
+                <span class="plan-period">/MO</span>
+              </div>
+              <div class="plan-price-title">UNLIMITED WASH</div>
+              <a href="https://sunshinecarwash.app.rinsed.co/portal" class="plan-buy-btn">BUY NOW</a>
+            </div>
+            
+            <div class="plan-divider"></div>
+            
+            <div class="plan-single-block">
+              <div class="plan-price-block single">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">20</span>
+              </div>
+              <div class="plan-price-title">SINGLE WASH</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BASIC -->
+        <div class="plan-card plan-basic">
+          <div class="plan-card-header">
+            <h3 class="plan-name">BASIC</h3>
+          </div>
+          <div class="plan-card-body">
+            <ul class="plan-features">
+              <li class="excluded">Graphene</li>
+              <li class="excluded">Ceramic Mirror</li>
+              <li class="excluded">Platinum Hot Wax</li>
+              <li class="excluded">Rain Guard</li>
+              <li class="excluded">Tire Shine</li>
+              <li class="excluded">Wheel Cleaner</li>
+              <li class="excluded">Buff &amp; Dry</li>
+              <li class="included">Wash</li>
+            </ul>
+            
+            <div class="plan-unlimited-block">
+              <div class="plan-price-block">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">25</span>
+                <span class="plan-period">/MO</span>
+              </div>
+              <div class="plan-price-title">UNLIMITED WASH</div>
+              <a href="https://sunshinecarwash.app.rinsed.co/portal" class="plan-buy-btn">BUY NOW</a>
+            </div>
+            
+            <div class="plan-divider"></div>
+            
+            <div class="plan-single-block">
+              <div class="plan-price-block single">
+                <span class="plan-currency">$</span>
+                <span class="plan-price">12</span>
+              </div>
+              <div class="plan-price-title">SINGLE WASH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 35px; font-family: var(--font-body); font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; font-weight: 500;">
+        <p>*Prices subject to change without notice</p>
+        <p>*Tax included at checkout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       3. EVERY WASH INCLUDES (Cyan)
+  ═══════════════════════════════════════ -->
+  <section class="amenities-cyan-section" style="background-color: #01edeb; padding: 80px 0; text-align: center;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 50px;">
+        <h2 style="color: #101162; font-size: 3rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.01em;">EVERY WASH INCLUDES</h2>
+      </div>
+      
+      <div class="amenities-cyan-grid">
+        <!-- Item 1 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M19.02 10v9.02c0 .54-.44.98-.98.98H6.01c-.54 0-.98-.44-.98-.98V10h14m.98-2H4v11c0 1.66 1.34 3 3 3h10c1.66 0 3-1.34 3-3V8zM12 2c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2s-2-.9-2-2V4c0-1.1.9-2 2-2z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">HIGH POWER VACUUMS</h4>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">MICROFIBER TOWELS</h4>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">AIR FRESHENERS</h4>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5s-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">DASH WIPES</h4>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm5 0h-4v-4h4v4zm0-6H4V8h16v4z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">AUTOMATIC MAT CLEANERS</h4>
+        </div>
+        
+        <!-- Item 6 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M21 11c0-4.42-3.58-8-8-8s-8 3.58-8 8c0 3.58 2.5 6.58 6 7.42V21h4v-2.58c3.5-1.12 6-4.12 6-7.42zm-8 6c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">HEAVY-DUTY SCRUB SINKS</h4>
+        </div>
+        
+        <!-- Item 7 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">GLASS CLEANER</h4>
+        </div>
+        
+        <!-- Item 8 -->
+        <div class="amenity-cyan-item">
+          <div class="amenity-cyan-icon-wrapper">
+            <svg class="amenity-cyan-svg" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.07 19.62 10.47 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+          </div>
+          <h4 class="amenity-cyan-title">ALL-PURPOSE CLEANER</h4>
+        </div>
+      </div>
+      
+      <div style="margin-top: 40px;">
+        <a href="compare-plans.html" class="btn btn-primary">WASH SERVICES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       4. OUR LATEST CAR WASH TECHNOLOGY
+  ═══════════════════════════════════════ -->
+  <section class="tech-section-interactive" style="background-color: #FFFFFF; padding: 90px 0; position: relative; overflow: hidden;">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+        <h2 class="tech-section-title">OUR LATEST CAR WASH TECHNOLOGY</h2>
+      </div>
+      
+      <div class="tech-diagram-container">
+        <!-- Corvette Image -->
+        <img src="images/white_corvette.png" class="corvette-img" alt="Sleek white Corvette Stingray highlighting Sunshine Washes premium wash technology">
+        
+        <!-- SVG Overlay for Pointer Lines and Dots -->
+        <svg class="pointer-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <!-- 1. Platinum Lava -> front nose -->
+          <path d="M 14 26 C 18 34, 22 42, 27 50" class="pointer-line" />
+          <circle cx="27" cy="50" r="1.0" class="pointer-hub" />
+          <circle cx="27" cy="50" r="0.4" class="pointer-hub-inner" />
+
+          <!-- 2. Rain Guard -> windshield -->
+          <path d="M 36 18 C 37 24, 38 30, 39 36" class="pointer-line" />
+          <circle cx="39" cy="36" r="1.0" class="pointer-hub" />
+          <circle cx="39" cy="36" r="0.4" class="pointer-hub-inner" />
+
+          <!-- 3. Platinum Hot Wax -> roof -->
+          <path d="M 57 18 C 56 24, 55 28, 54 32" class="pointer-line" />
+          <circle cx="54" cy="32" r="1.0" class="pointer-hub" />
+          <circle cx="54" cy="32" r="0.4" class="pointer-hub-inner" />
+
+          <!-- 4. Graphene X -> rear wing -->
+          <path d="M 80 26 C 76 32, 72 38, 69 42" class="pointer-line" />
+          <circle cx="69" cy="42" r="1.0" class="pointer-hub" />
+          <circle cx="69" cy="42" r="0.4" class="pointer-hub-inner" />
+
+          <!-- 5. Ceramic -> front fender -->
+          <path d="M 14 68 C 20 62, 25 56, 30 50" class="pointer-line" />
+          <circle cx="30" cy="50" r="1.0" class="pointer-hub" />
+          <circle cx="30" cy="50" r="0.4" class="pointer-hub-inner" />
+
+          <!-- 6. Wheel Cleaner -> front wheel -->
+          <path d="M 36 78 C 36 74, 37 68, 37 62" class="pointer-line" />
+          <circle cx="37" cy="62" r="1.0" class="pointer-hub" />
+          <circle cx="37" cy="62" r="0.4" class="pointer-hub-inner" />
+
+          <!-- 7. Tire Shine -> rear wheel -->
+          <path d="M 58 78 C 58 74, 60 68, 62 62" class="pointer-line" />
+          <circle cx="62" cy="62" r="1.0" class="pointer-hub" />
+          <circle cx="62" cy="62" r="0.4" class="pointer-hub-inner" />
+
+          <!-- 8. Polymer Conditioner -> side door -->
+          <path d="M 80 65 C 72 60, 64 54, 56 50" class="pointer-line" />
+          <circle cx="56" cy="50" r="1.0" class="pointer-hub" />
+          <circle cx="56" cy="50" r="0.4" class="pointer-hub-inner" />
+        </svg>
+
+        <!-- Floating Blurbs -->
+        <!-- Top Row Labels -->
+        <div class="tech-blurb-item label-top-left" style="left: 0%; top: 14%; width: 20%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Platinum Lava</h3>
+          </div>
+          <p>Helps melt away dirt before we shine your car.</p>
+        </div>
+
+        <div class="tech-blurb-item label-top-mid-left" style="left: 24%; top: 3%; width: 22%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Rain Guard</h3>
+          </div>
+          <p>Repels water and enhances visibility when it's raining.</p>
+        </div>
+
+        <div class="tech-blurb-item label-top-mid-right" style="left: 50%; top: 3%; width: 22%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M12 3c-4.97 0-9 4.03-9 9 0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-1.31C18.16 19.67 21 16.17 21 12c0-4.97-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm0-11c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Platinum Hot Wax</h3>
+          </div>
+          <p>Enhances your vehicle's shine while protecting it from harsh elements.</p>
+        </div>
+
+        <div class="tech-blurb-item label-top-right" style="left: 78%; top: 12%; width: 20%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Graphene X</h3>
+          </div>
+          <p>Provides an enhanced level of defense for your vehicle due to increased hydrophobicity which provides more water beading and longer durability of protection.</p>
+        </div>
+
+        <!-- Bottom Row Labels -->
+        <div class="tech-blurb-item label-bottom-left" style="left: 0%; top: 62%; width: 20%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V12c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Ceramic</h3>
+          </div>
+          <p>Protects your car's paint against harmful UV rays and chemical stains, gives your car a candy-like gloss and helps repel water.</p>
+        </div>
+
+        <div class="tech-blurb-item label-bottom-mid-left" style="left: 24%; top: 78%; width: 22%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Wheel Cleaner</h3>
+          </div>
+          <p>Removes brake dust and road grime.</p>
+        </div>
+
+        <div class="tech-blurb-item label-bottom-mid-right" style="left: 50%; top: 78%; width: 22%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Tire Shine</h3>
+          </div>
+          <p>Prevents premature aging and tire rot and gives your tires that clean conditioned shine.</p>
+        </div>
+
+        <div class="tech-blurb-item label-bottom-right" style="left: 78%; top: 60%; width: 20%;">
+          <div class="tech-blurb-header">
+            <span class="tech-blurb-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFFFFF"><path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 13.93 10 17.2 10c.97 0 1.88-.17 2.74-.47.04.15.06.31.06.47 0 4.41-3.59 8-8 8z"/></svg>
+            </span>
+            <h3 class="tech-blurb-title">Polymer Conditioner</h3>
+          </div>
+          <p>Protects your car's paint from fading, scratches, dirt, and contaminants.</p>
+        </div>
+      </div>
+
+      <!-- Compare Plans Button -->
+      <div style="display: flex; justify-content: center; margin-top: 50px;">
+        <a href="compare-plans.html" class="btn btn-primary" style="background-color: #FF0095; border-color: #FF0095; color: #FFFFFF; font-weight: 700; padding: 14px 36px; border-radius: 100px;">COMPARE PLANS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       5. NEW ARRIVALS (Dark Navy)
+  ═══════════════════════════════════════ -->
+  <section class="locations-section-navy" style="background-color: #101162; padding: 90px 0 60px; color: #FFFFFF;" id="locator-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <h2 style="color: #FFFFFF; font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 30px;">NEW ARRIVALS</h2>
+        
+        <div class="new-arrivals-grid">
+          <!-- Card 1 -->
+          <div class="new-arrival-card">
+            <svg class="new-arrival-pin-svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0095" style="margin-bottom: 12px; flex-shrink: 0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>PINE RIDGE</h3>
+            <div class="new-arrival-status">NOW OPEN</div>
+            <p>1635 Pine Ridge Rd,<br>Naples, FL 34109</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="new-arrival-card">
+            <svg class="new-arrival-pin-svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0095" style="margin-bottom: 12px; flex-shrink: 0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>PEMBROKE PINES EAST</h3>
+            <div class="new-arrival-status">NOW OPEN</div>
+            <p>7781 Pines Blvd,<br>Pembroke Pines, FL 33024</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="new-arrival-card">
+            <svg class="new-arrival-pin-svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0095" style="margin-bottom: 12px; flex-shrink: 0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>HAVERHILL ROAD</h3>
+            <div class="new-arrival-status">NOW OPEN</div>
+            <p>4918 Okeechobee Boulevard,<br>West Palm Beach, FL 33417</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="new-arrival-card">
+            <svg class="new-arrival-pin-svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0095" style="margin-bottom: 12px; flex-shrink: 0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>DORAL SOUTH</h3>
+            <div class="new-arrival-status">NOW OPEN</div>
+            <p>1350 NW 87th Avenue,<br>Doral, FL 33172</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="new-arrival-card">
+            <svg class="new-arrival-pin-svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0095" style="margin-bottom: 12px; flex-shrink: 0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>LAKE PICKETT</h3>
+            <div class="new-arrival-status">NOW OPEN</div>
+            <p>13655 E Colonial Dr,<br>Orlando, FL 32826</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="new-arrival-card">
+            <svg class="new-arrival-pin-svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0095" style="margin-bottom: 12px; flex-shrink: 0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <h3>ROUSE ROAD</h3>
+            <div class="new-arrival-status">NOW OPEN</div>
+            <p>11052 E Colonial Dr,<br>Orlando, FL 32817</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       6. COMING SOON (White Background)
+  ═══════════════════════════════════════ -->
+  <section style="background-color: #FFFFFF; padding: 70px 0 90px;">
+    <div class="container">
+      <div style="text-align: center;">
+        <h2 style="color: #101162; font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 40px;">COMING SOON</h2>
+        
+        <div class="coming-soon-pills-grid">
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>ALLAPATTAH</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>BISCAYNE</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>BOCA RATON</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>CORAL WAY</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>DANIA BEACH</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>DAVIE EAST</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>DAVIE WEST</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>FLORIDA CITY</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>HIALEAH EAST</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>HIALEAH WEST</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>HOMESTEAD</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>HUDSON TOWN CENTER</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>LAGO MAR / WHISKEY RD</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>LEHIGH ACRES</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>LONGWOOD</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>MARGATE</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>MELBOURNE BABCOCK</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>MELBOURNE WICKHAM</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>MIAMI LAKES</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>NE MIAMI CAPE RD</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>NE MIAMI BEACH</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>POMPANO BEACH FEDERAL</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>POMPANO BEACH SAMPLE</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>LAKELAND</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>RIVERVIEW</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>SARASOTA</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>VENICE</span></div>
+          <div class="coming-soon-pill"><svg class="pill-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>WEST PALM BEACH</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       7. CUSTOMER TESTIMONIALS
+  ═══════════════════════════════════════ -->
+  <section class="reviews-section-light" style="background-color: #F8FAFC; padding: 90px 0; color: #101162; border-bottom: 1px solid rgba(16, 17, 98, 0.05);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+        <h2 style="color: #FF0095; font-size: 2.8rem; font-weight: 900; letter-spacing: -0.01em; text-transform: uppercase;">SEE WHAT OUR CUSTOMERS HAVE TO SAY ABOUT US!</h2>
+      </div>
+
+      <div class="reviews-carousel-grid">
+        <!-- Review 1 -->
+        <div class="review-card-white">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="review-author-avatar-img" style="margin-bottom: 0;">ST</div>
+              <div>
+                <h4 class="review-author-name" style="margin-bottom: 2px; text-transform: none;">Stephanie Thompson</h4>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Local Guide · 42 reviews</div>
+              </div>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" height="18" alt="Google" style="margin-top: 4px;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+            <div class="review-stars-gold" style="margin-bottom: 0; font-size: 1rem; letter-spacing: 2px;">★★★★★</div>
+            <span class="review-card-date" style="margin-bottom: 0;">a month ago</span>
+          </div>
+          <p class="review-card-text" style="font-style: normal; font-size: 0.88rem; color: #475569;">"Absolutely outstanding car wash! The staff was friendly, the vacuums are strong and completely free, plus they supply fresh microfiber towels and glass cleaners."</p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card-white">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="review-author-avatar-img" style="margin-bottom: 0;">RA</div>
+              <div>
+                <h4 class="review-author-name" style="margin-bottom: 2px; text-transform: none;">Robert Anderson</h4>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">14 reviews</div>
+              </div>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" height="18" alt="Google" style="margin-top: 4px;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+            <div class="review-stars-gold" style="margin-bottom: 0; font-size: 1rem; letter-spacing: 2px;">★★★★★</div>
+            <span class="review-card-date" style="margin-bottom: 0;">2 months ago</span>
+          </div>
+          <p class="review-card-text" style="font-style: normal; font-size: 0.88rem; color: #475569;">"Always get my car washed here, it's fast and clean. Definitely recommend the Graphene wash. The atomic shielding makes rainwater bead right off!"</p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card-white">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="review-author-avatar-img" style="margin-bottom: 0;">AS</div>
+              <div>
+                <h4 class="review-author-name" style="margin-bottom: 2px; text-transform: none;">Anjelica Saunders</h4>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Local Guide · 112 reviews</div>
+              </div>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" height="18" alt="Google" style="margin-top: 4px;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+            <div class="review-stars-gold" style="margin-bottom: 0; font-size: 1rem; letter-spacing: 2px;">★★★★★</div>
+            <span class="review-card-date" style="margin-bottom: 0;">3 months ago</span>
+          </div>
+          <p class="review-card-text" style="font-style: normal; font-size: 0.88rem; color: #475569;">"Best car wash ever. The microfiber towels are always clean and dry. Self-serve dashboard makes membership management completely hassle-free."</p>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review-card-white">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="review-author-avatar-img" style="margin-bottom: 0;">IB</div>
+              <div>
+                <h4 class="review-author-name" style="margin-bottom: 2px; text-transform: none;">Iva Brower</h4>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">4 reviews</div>
+              </div>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" height="18" alt="Google" style="margin-top: 4px;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+            <div class="review-stars-gold" style="margin-bottom: 0; font-size: 1rem; letter-spacing: 2px;">★★★★★</div>
+            <span class="review-card-date" style="margin-bottom: 0;">3 months ago</span>
+          </div>
+          <p class="review-card-text" style="font-style: normal; font-size: 0.88rem; color: #475569;">"Great prices and very clean wash. The free vacuums and amenities are a huge plus. My kids love going through the colorful lava soap tunnel!"</p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px; font-weight: 700; color: #101162; font-size: 1rem;">
+        Google Rating: <span style="color: #FF0095;">4.8 of 5 Stars</span>, based on over <span style="color: #FF0095;">80,000 reviews</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       8. FAQ
+  ═══════════════════════════════════════ -->
+  <section style="background-color: var(--bg-light);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Got Questions?</div>
+        <h2>Frequently Asked Questions</h2>
+        <p>Here are the answers to the most common questions regarding memberships and facilities.</p>
+      </div>
+      
+      <div class="faq-group">
+        <details class="disclosure" name="faq">
+          <summary>How often can I wash my car with a membership?</summary>
+          <div class="faq-content">
+            As an Unlimited Wash Club member, you can wash your vehicle once per day, every day the wash is open, at any of our Sunshine Washes locations.
+          </div>
+        </details>
+        
+        <details class="disclosure" name="faq">
+          <summary>Can I manage my account online?</summary>
+          <div class="faq-content">
+            Yes! You can manage your account 24/7 in our customer portal. You can securely update your payment method, view billing records, swap vehicles, or pause your membership at any time.
+          </div>
+        </details>
+
+        <details class="disclosure" name="faq">
+          <summary>Is the tunnel wash safe for electric and hybrid vehicles?</summary>
+          <div class="faq-content">
+            Absolutely. Our tunnel and sensors are fully compatible with electric, hybrid, and conventional internal combustion vehicles. Please ensure your vehicle is placed in neutral and wipers are switched off.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       9. FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="images/sunshine-logo.png" alt="Sunshine Washes Logo" class="footer-logo-img" style="max-width: 150px; margin-bottom: 20px;">
+          </a>
+          <p>Tampa Bay's leading premium express car wash. Providing high-quality clean, eco-friendly water systems, and powerful customer amenities.</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com/SunshinecarwashCL" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.87c0-.25.02-.5.1-.69a1.16 1.16 0 0 1 1.07-.78c.76 0 .98.57.98 1.4v4.94h2.8z"/></svg>
+            </a>
+            <a href="https://instagram.com/sunshinecarwash" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <ul class="footer-links" style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 8px;">Clearwater, FL 33765</li>
+            <li style="margin-bottom: 8px;">Call us: <strong>(727) 555-0190</strong></li>
+            <li style="margin-bottom: 8px;">Email: <strong>support@sunshinewashes.com</strong></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Memberships</h4>
+          <ul class="footer-links">
+            <li><a href="manage-membership.html">Terms &amp; Conditions</a></li>
+            <li><a href="manage-membership.html">Wash Rules</a></li>
+            <li><a href="https://sunshinecarwash.app.rinsed.co/portal">Manage Membership</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Locations</h4>
+          <ul class="footer-links">
+            <li><a href="locations.html">Clearwater</a></li>
+            <li><a href="locations.html">Largo</a></li>
+            <li><a href="locations.html">Temple Terrace</a></li>
+            <li><a href="locations.html">St. Petersburg</a></li>
+            <li><a href="locations.html">Tampa Heights</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <ul class="footer-links">
+            <li><a href="about-us.html">Our Story</a></li>
+            <li><a href="work-with-us.html">Careers</a></li>
+            <li><a href="about-us.html">Partnerships</a></li>
+            <li><a href="fundraising.html">Fundraising</a></li>
+            <li><a href="manage-membership.html#faqs">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sunshine Washes. All rights reserved.</p>
+        <div style="display:flex; gap:16px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
